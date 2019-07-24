@@ -29,4 +29,11 @@ def deleted_old_elements(data_list):
     return data_list
 
 
+def add_data(old_list, new_object):
+    transformed_data = firts_transform_data(new_object)
+    deleted_old_elements(transformed_data)
+    for new_element in transformed_data:
+        old_list.append(new_element)
+
+
 # Funcion para ejecución individual
