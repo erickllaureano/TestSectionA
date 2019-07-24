@@ -21,9 +21,17 @@ de resolver el ejercicio solicitado, ya que se usan funciones basicas
 de la programación para obtener las vocales y realizar la transformación
 de las cadenas.
 
+Para el archivo *change_vowel.upgrade.py* realiza la misma funcionalidad
+del ejercicio A1, solo que se ha reducido el código
+
 ## A2
 En el archivo *objects_ordering.py* se encuentra la forma menos optima de
 ordenar un objeto utilizando utilizando programación lineal y no clases.
 
+En el archivo *objects_ordering.upgrade.py* la logica se trata mediante
+clases lo cual facilita a la hora de mostrar la información o agregar
+nuevos objetos.
 
 ## A3
+En el archivo *unit_test.py* se encuentran las pruebas unitarias de los
+ejercicios A1 y A2
