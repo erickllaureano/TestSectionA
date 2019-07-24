@@ -97,6 +97,12 @@ class OrderingObjects:
             self.list_data.append(new_element)
         self.list_data = self.recursive_ordering_data(self.list_data)
 
+    def get_ordered_object(self):
+        return self.list_data
+
+    def get_original_object(self):
+        return self.original_object
+
 
 if __name__ == '__main__':
     data = {
