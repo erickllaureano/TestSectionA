@@ -69,4 +69,12 @@ def ordering_data_by_level(data_list):
                 ordered_data.append(item_by_priority)
     return ordered_data
 
+
+def recursive_ordering_data(data_list):
+    data_list = ordering_data_by_level(data_list)
+    for item_list in data_list:
+        if len(item_list['childs']) > 0:
+            recursive_ordering_data(item_list['childs'])
+    return data_list
+
 # Funcion para ejecución individual
