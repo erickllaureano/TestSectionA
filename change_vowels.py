@@ -42,3 +42,12 @@ def count_and_replaces_vowels(string):
 
 
 # Funcion para ejecución individual
+def main():
+    user_string = input('Ingrese la cadena a evaluar: ')
+    results = count_and_replaces_vowels(user_string)
+    print('Cadena resultante: ' + results['str'])
+    print('Conteo de vocales: ' + str(results['count_vowels']))
+
+
+if __name__ == '__main__':
+    main()
