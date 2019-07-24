@@ -36,4 +36,19 @@ def add_data(old_list, new_object):
         old_list.append(new_element)
 
 
+def ordering_data_by_priority(pre_data_list):
+    pre_ordered_data = list()
+    temporary_data = pre_data_list[:]
+    while len(temporary_data) > 0:
+        for priority in priorities:
+            index_to_delet = 0
+            while index_to_delet < len(temporary_data):
+                if temporary_data[index_to_delet]['priority'] == priority:
+                    pre_ordered_data.append(temporary_data.pop(index_to_delet))
+                    index_to_delet = 0
+                else:
+                    index_to_delet += 1
+    return pre_ordered_data
+
+
 # Funcion para ejecución individual
