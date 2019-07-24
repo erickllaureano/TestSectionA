@@ -77,4 +77,20 @@ def recursive_ordering_data(data_list):
             recursive_ordering_data(item_list['childs'])
     return data_list
 
+
+def printing_ordering_data(data_list, level=0):
+    for item_list in data_list:
+        string = ''
+        for i in range(level):
+            string += '-----'
+        print(string + '> ' + item_list['name'])
+        if len(item_list['childs']) > 0:
+            printing_ordering_data(item_list['childs'], level+1)
+
+
+def show(data_list):
+    print('\n------------Data------------\n')
+    printing_ordering_data(data_list)
+    print('\n------------Data------------\n')
+
 # Funcion para ejecución individual
