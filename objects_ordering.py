@@ -51,4 +51,22 @@ def ordering_data_by_priority(pre_data_list):
     return pre_ordered_data
 
 
+def ordering_data_by_level(data_list):
+    ordered_data = list()
+    temporary_data = data_list[:]
+    while len(temporary_data) > 0:
+        for level in levels:
+            pre_ordered_data = list()
+            index_to_delet = 0
+            while index_to_delet < len(temporary_data):
+                if temporary_data[index_to_delet]['level'] == level:
+                    pre_ordered_data.append(temporary_data.pop(index_to_delet))
+                    index_to_delet = 0
+                else:
+                    index_to_delet += 1
+            data_by_priority = ordering_data_by_priority(pre_ordered_data)
+            for item_by_priority in data_by_priority:
+                ordered_data.append(item_by_priority)
+    return ordered_data
+
 # Funcion para ejecución individual
