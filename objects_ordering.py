@@ -93,4 +93,63 @@ def show(data_list):
     printing_ordering_data(data_list)
     print('\n------------Data------------\n')
 
+
+def init_app(data):
+    list_data = firts_transform_data(data)
+    deleted_old_elements(list_data)
+    list_data = recursive_ordering_data(list_data)
+    show(list_data)
+
+    first_data = {
+        "DataC": {
+            "name": "One nameC",
+            "level": "One",
+            "priority": "High"
+        }
+    }
+
+    add_data(list_data, first_data)
+    list_data = recursive_ordering_data(list_data)
+    show(list_data)
+
+
 # Funcion para ejecución individual
+def main():
+    obj = {
+      "DataA": {
+        "name": "One nameA",
+        "level": "One",
+        "priority": "Low",
+        "SubDataA": {
+          "name": "One nameSubdataA",
+          "level": "One",
+          "priority": "Highest"
+        },
+        "SubDataA2": {
+          "name": "One nameSubDataA2",
+          "level": "Two",
+          "priority": "High",
+          "SubDataAA": {
+            "name": "One nameSubdataAA",
+            "level": "One",
+            "priority": "Highest"
+          }
+        }
+      },
+      "DataB": {
+        "name": "One nameB",
+        "level": "Two",
+        "priority": "Highest",
+        "subDataB": {
+          "name": "One nameSubDataB",
+          "level": "One",
+          "priority": "Highest"
+        }
+      }
+    }
+    init_app(obj)
+
+
+if __name__ == '__main__':
+    main()
+
