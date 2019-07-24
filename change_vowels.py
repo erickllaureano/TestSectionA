@@ -4,14 +4,6 @@ vowels = list('aeiouAEIOU')
 
 # Funciones auxiliares
 def next_vowels(vowel):
-    """
-    Funcion para recibir una vocal
-    y retornar la siguiente vocal
-    respetando ser caseSensitive
-
-    :param vowel: string
-    :return: string
-    """
     index = 0
 
     # Ciclo para encontrar le indice de la vocal indicada
