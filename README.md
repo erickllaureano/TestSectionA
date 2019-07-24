@@ -35,3 +35,10 @@ nuevos objetos.
 ## A3
 En el archivo *unit_test.py* se encuentran las pruebas unitarias de los
 ejercicios A1 y A2
+
+###Ejecuciones posibles:
+- `python change_vowels.py`
+- `python change_vowels_upgrade.py`
+- `python objects_ordering.py`
+- `python objects_ordering_upgrade.py`
+- `python unit_test.py -v`
