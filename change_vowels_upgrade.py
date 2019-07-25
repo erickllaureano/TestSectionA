@@ -14,12 +14,13 @@ def next_vowels(vowel):
 
 def count_and_replaces_vowels(string):
     count_vowels = 0
-    list_string = list(string)
-    for index, letter in enumerate(list_string):
+    new_string = ''
+    for i, letter in enumerate(string):
         if letter in vowels:
             count_vowels += 1
-            list_string[index] = next_vowels(letter)
-    string = ''.join(list_string)
+            new_string += next_vowels(letter)
+        else:
+            new_string += letter
     return {"str": string, "count_vowels": count_vowels}
 
 
