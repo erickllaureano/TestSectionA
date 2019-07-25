@@ -56,7 +56,7 @@ def ordering_data_by_priority(pre_data_list):
     pre_ordered_data = list()
     temporary_data = pre_data_list[:]
     for priority in priorities:
-        searching_data(
+        searching_move_data(
             temporary_data,
             pre_ordered_data,
             'priority',
@@ -71,7 +71,7 @@ def ordering_data_by_level(data_list):
     temporary_data = data_list[:]
     for level in levels:
         pre_ordered_data = list()
-        searching_data(
+        searching_move_data(
             temporary_data,
             pre_ordered_data,
             'level',
