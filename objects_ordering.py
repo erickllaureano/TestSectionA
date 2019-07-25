@@ -37,22 +37,31 @@ def add_data(old_list, new_object):
         old_list.append(new_element)
 
 
+def searching_move_data(temporary_data, pre_ordered_data, key, value):
+    index_to_delet = 0
+    while index_to_delet < len(temporary_data):
+        key_value = temporary_data[index_to_delet].get(
+            key, ''
+        )
+        if key_value == value:
+            pre_ordered_data.append(
+                temporary_data.pop(index_to_delet)
+            )
+            index_to_delet = 0
+        else:
+            index_to_delet += 1
+
+
 def ordering_data_by_priority(pre_data_list):
     pre_ordered_data = list()
     temporary_data = pre_data_list[:]
     for priority in priorities:
-        index_to_delet = 0
-        while index_to_delet < len(temporary_data):
-            object_priority = temporary_data[index_to_delet].get(
-                'priority', ''
-            )
-            if object_priority == priority:
-                pre_ordered_data.append(
-                    temporary_data.pop(index_to_delet)
-                )
-                index_to_delet = 0
-            else:
-                index_to_delet += 1
+        searching_data(
+            temporary_data,
+            pre_ordered_data,
+            'priority',
+            priority
+        )
     pre_ordered_data += temporary_data
     return pre_ordered_data
 
@@ -62,18 +71,12 @@ def ordering_data_by_level(data_list):
     temporary_data = data_list[:]
     for level in levels:
         pre_ordered_data = list()
-        index_to_delet = 0
-        while index_to_delet < len(temporary_data):
-            object_level = temporary_data[index_to_delet].get(
-                'level', ''
-            )
-            if object_level == level:
-                pre_ordered_data.append(
-                    temporary_data.pop(index_to_delet)
-                )
-                index_to_delet = 0
-            else:
-                index_to_delet += 1
+        searching_data(
+            temporary_data,
+            pre_ordered_data,
+            'level',
+            level
+        )
         ordered_data += ordering_data_by_priority(
             pre_ordered_data
         )
@@ -132,12 +135,12 @@ def main():
         "priority": "Low",
         "SubDataA": {
           "name": "One nameSubdataA",
-          "level": "One",
+          "level": "Two",
           "priority": "Highest"
         },
         "SubDataA2": {
           "name": "One nameSubDataA2",
-          "level": "Two",
+          "level": "One",
           "priority": "High",
           "SubDataAA": {
             "name": "One nameSubdataAA",
