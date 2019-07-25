@@ -40,34 +40,43 @@ def add_data(old_list, new_object):
 def ordering_data_by_priority(pre_data_list):
     pre_ordered_data = list()
     temporary_data = pre_data_list[:]
-    while len(temporary_data) > 0:
-        for priority in priorities:
-            index_to_delet = 0
-            while index_to_delet < len(temporary_data):
-                if temporary_data[index_to_delet]['priority'] == priority:
-                    pre_ordered_data.append(temporary_data.pop(index_to_delet))
-                    index_to_delet = 0
-                else:
-                    index_to_delet += 1
+    for priority in priorities:
+        index_to_delet = 0
+        while index_to_delet < len(temporary_data):
+            object_priority = temporary_data[index_to_delet].get(
+                'priority', ''
+            )
+            if object_priority == priority:
+                pre_ordered_data.append(
+                    temporary_data.pop(index_to_delet)
+                )
+                index_to_delet = 0
+            else:
+                index_to_delet += 1
+    pre_ordered_data += temporary_data
     return pre_ordered_data
 
 
 def ordering_data_by_level(data_list):
     ordered_data = list()
     temporary_data = data_list[:]
-    while len(temporary_data) > 0:
-        for level in levels:
-            pre_ordered_data = list()
-            index_to_delet = 0
-            while index_to_delet < len(temporary_data):
-                if temporary_data[index_to_delet]['level'] == level:
-                    pre_ordered_data.append(temporary_data.pop(index_to_delet))
-                    index_to_delet = 0
-                else:
-                    index_to_delet += 1
-            data_by_priority = ordering_data_by_priority(pre_ordered_data)
-            for item_by_priority in data_by_priority:
-                ordered_data.append(item_by_priority)
+    for level in levels:
+        pre_ordered_data = list()
+        index_to_delet = 0
+        while index_to_delet < len(temporary_data):
+            object_level = temporary_data[index_to_delet].get(
+                'level', ''
+            )
+            if object_level == level:
+                pre_ordered_data.append(
+                    temporary_data.pop(index_to_delet)
+                )
+                index_to_delet = 0
+            else:
+                index_to_delet += 1
+        ordered_data += ordering_data_by_priority(
+            pre_ordered_data
+        )
     return ordered_data
 
 
