@@ -1,5 +1,6 @@
 # Variables globales
-levels = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten']
+levels = ['One', 'Two', 'Three', 'Four', 'Five',
+          'Six', 'Seven', 'Eight', 'Nine', 'Ten']
 priorities = ['Highest', 'High', 'Medium', 'Low', 'Lowest']
 
 
@@ -13,13 +14,13 @@ class OrderingObjects:
         self.list_data = self.recursive_ordering_data(self.list_data)
 
     # Methods:
-    def firts_transform_data(self, data):
+    def firts_transform_data(self, original_data):
         aux_list = list()
-        for item in data:
-            if type(data[item]) is dict:
-                aux = self.firts_transform_data(data[item])
-                data[item]['childs'] = aux
-                aux_list.append(data[item])
+        for item in original_data:
+            if type(original_data[item]) is dict:
+                aux = self.firts_transform_data(original_data[item])
+                original_data[item]['childs'] = aux
+                aux_list.append(original_data[item])
         return aux_list
 
     def deleted_old_elements(self, data_list):
@@ -45,7 +46,9 @@ class OrderingObjects:
                 index_to_delet = 0
                 while index_to_delet < len(temporary_data):
                     if temporary_data[index_to_delet]['priority'] == priority:
-                        pre_ordered_data.append(temporary_data.pop(index_to_delet))
+                        pre_ordered_data.append(
+                            temporary_data.pop(index_to_delet)
+                        )
                         index_to_delet = 0
                     else:
                         index_to_delet += 1
@@ -60,11 +63,15 @@ class OrderingObjects:
                 index_to_delet = 0
                 while index_to_delet < len(temporary_data):
                     if temporary_data[index_to_delet]['level'] == level:
-                        pre_ordered_data.append(temporary_data.pop(index_to_delet))
+                        pre_ordered_data.append(
+                            temporary_data.pop(index_to_delet)
+                        )
                         index_to_delet = 0
                     else:
                         index_to_delet += 1
-                data_by_priority = self.ordering_data_by_priority(pre_ordered_data)
+                data_by_priority = self.ordering_data_by_priority(
+                    pre_ordered_data
+                )
                 for item_by_priority in data_by_priority:
                     ordered_data.append(item_by_priority)
         return ordered_data

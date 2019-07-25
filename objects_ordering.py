@@ -1,5 +1,6 @@
 # Variables globales
-levels = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten']
+levels = ['One', 'Two', 'Three', 'Four', 'Five',
+          'Six', 'Seven', 'Eight', 'Nine', 'Ten']
 priorities = ['Highest', 'High', 'Medium', 'Low', 'Lowest']
 
 
@@ -152,4 +153,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
