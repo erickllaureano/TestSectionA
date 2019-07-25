@@ -21,7 +21,7 @@ def count_and_replaces_vowels(string):
             new_string += next_vowels(letter)
         else:
             new_string += letter
-    return {"str": string, "count_vowels": count_vowels}
+    return {"str": new_string, "count_vowels": count_vowels}
 
 
 # Funcion para ejecución individual
