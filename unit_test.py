@@ -12,8 +12,10 @@ class TestSectionA(unittest.TestCase):
                          {"str": 'hecir', "count_vowels": 2})
 
     def test_A1_upgrade(self):
-        self.assertEqual(change_vowels_upgrade.count_and_replaces_vowels('hacer'),
-                         {"str": 'hecir', "count_vowels": 2})
+        self.assertEqual(
+            change_vowels_upgrade.count_and_replaces_vowels('hacer'),
+            {"str": 'hecir', "count_vowels": 2}
+        )
 
     def test_A2(self):
         data = {
